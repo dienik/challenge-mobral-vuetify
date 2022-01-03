@@ -1,6 +1,6 @@
 
 <template>
-  <v-app class="grey">
+  <v-app>
     <div class="container">
       <div class="row">
         <h1>COIN Market</h1>
@@ -13,7 +13,7 @@
           v-model="textSearch"
         />
 
-        <table class="table table-dark table-responsive " width = '400' >
+        <table class="table table-dark table-responsive" width="400">
           <thead>
             <tr>
               <th v-for="title in titles" :key="title">
@@ -55,7 +55,6 @@
 </template>
 <script>
 export default {
-
   name: "JoaoPedro",
   data() {
     return {
@@ -67,7 +66,7 @@ export default {
   },
   async mounted() {
     const res = await fetch(
-      "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false"
+      "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=1000&page=1&sparkline=false"
     );
     const data = await res.json();
     console.log(data);
@@ -86,5 +85,19 @@ export default {
 };
 </script>
 <style scoped>
+#app {
+  background: url("https://media.giphy.com/media/3og0IV7MOCfnm85iRa/giphy-downsized-large.gif")
+    no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
 
+h1 {
+  text-align: center;
+  color: rgb(248, 224, 7);
+  font-family: "Open Sans Condesed", sans-serif;
+  font-size: 70px;
+}
 </style>
